@@ -1,0 +1,90 @@
+DTD:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Course_Catalog[
+ <!ELEMENT Course_Catalog (Department+)>
+
+ <!ELEMENT Department (Title, Chair, Course+)>
+ <!ATTLIST Department Code CDATA #REQUIRED>
+
+ <!ELEMENT Title (#PCDATA)>
+
+ <!ELEMENT Chair (Professor)>
+
+ <!ELEMENT Professor (First_Name, Middle_Initial?, Last_Name)>
+
+ <!ELEMENT First_Name (#PCDATA)>
+ <!ELEMENT Middle_Initial (#PCDATA)>
+ <!ELEMENT Last_Name (#PCDATA)>
+
+ <!ELEMENT Course (Title, Description?, Instructors, Prerequisites?)>
+ <!ATTLIST Course Number CDATA #REQUIRED>
+
+ <!ATTLIST Course Enrollment CDATA #IMPLIED>
+
+ <!ELEMENT Description (#PCDATA)>
+
+ <!ELEMENT Instructors (Professor+ | Lecturer+)>
+
+ <!ELEMENT Lecturer (First_Name, Middle_Initial?, Last_Name)>
+
+ <!ELEMENT Prerequisites (Prereq+)>
+
+ <!ELEMENT Prereq (#PCDATA)>
+]>
+
+
+NUEVOS DATOS
+-- Primer curso
+
+<Course Number="CS250" Enrollment="70"> 
+	<Title>Blockchain Technology</Title> 
+	<Description>Introduction to the principles and practice of blockchain technology.</Description> 
+	<Instructors> 
+		<Lecturer> 
+			<First_Name>Felipe</First_Name> 
+			<Last_Name>Calvache</Last_Name> 
+		</Lecturer>
+		<Professor> 
+			<First_Name>Ana</First_Name> 
+			<Last_Name>Rincon</Last_Name> 
+		</Professor> 
+	</Instructors>
+</Course>
+
+-- Segundo Curso
+
+<Course Number="CS260" Enrollment="85"> 
+	<Title>Quantum Computing</Title> 
+	<Description>Fundamentals of quantum computing and its applications.</Description> 
+	<Instructors> 
+		<Lecturer>
+			<First_Name>Radamel</First_Name>
+			<Middle_Initial>G.</Middle_Initial>
+			<Last_Name>Falcao</Last_Name>
+		</Lecturer>
+		<Professor> 
+			<First_Name>Jeison</First_Name> 
+			<Last_Name>Casallas</Last_Name> 
+		</Professor> 
+	</Instructors> 
+	<Prerequisites> 
+		<Prereq>CS107</Prereq> 
+	</Prerequisites>
+</Course>
+
+-- Tercer Curso
+
+<Course Number="CS270" Enrollment="95"> 
+	<Title>Operating Systems</Title> 
+	<Description>It acts as an intermediary between the hardware and the user, managing system resources and allowing applications to run.</Description> 
+	<Instructors> 
+		<Professor> 
+			<First_Name>Irma</First_Name> 
+			<Last_Name>Diaz</Last_Name> 
+		</Professor> 
+	</Instructors> 
+	<Prerequisites> 
+		<Prereq>CS229</Prereq> 
+	</Prerequisites> 
+</Course>
